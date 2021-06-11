@@ -1,5 +1,6 @@
 import axios from "axios"
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
+import { Link } from "react-router-dom";
 import { Animal } from "../models/Animal";
 
 export function Animals() {
@@ -8,10 +9,11 @@ export function Animals() {
     
     let liTags = animals.map((animal) => {
         return(
-            <li>
+            <li key={animal.id}>
             <h1>{animal.name}</h1>
             <img src={animal.imageUrl} alt="" />
             <p>{animal.shortDescription}</p>
+            <Link to={"/animal/" + animal.id}>Show more</Link>
             </li>
             )
         });
@@ -21,7 +23,8 @@ export function Animals() {
             .then(response => {
                 getAnimals(response.data)
             });
-        }, []);
+            localStorage.setItem('Animals', JSON.stringify(animals));
+         }, []);
         return (
             <ul>
                 {liTags}
