@@ -1,5 +1,5 @@
 import './App.scss';
-import { Animal } from './components/Animal';
+import { AnimalDetail } from './components/AnimalDetail';
 import { PageNotFound } from './components/PageNotFound';
 import { Animals } from './components/Animals';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -12,7 +12,7 @@ function App() {
           <Animals></Animals>
         </Route>
         <Route path="/animal/:id">
-          <Animal></Animal>
+          <AnimalDetail></AnimalDetail>
         </Route>
         <Route path="*">
           <PageNotFound></PageNotFound>
