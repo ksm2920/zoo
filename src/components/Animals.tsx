@@ -19,7 +19,7 @@ export function Animals() {
     });
 
     useEffect(() => {
-        console.log("Animal.UseEffect runned")
+        console.log("Animals.UseEffect runned")
         let animalsFromLSString = localStorage.getItem('Animals');
 
         if (animalsFromLSString) {
