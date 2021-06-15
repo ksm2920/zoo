@@ -29,14 +29,6 @@ export function Animals() {
             .then(response => {
                 localStorage.setItem('Animals', JSON.stringify(response.data));
                 setAnimals(response.data);
-
-                // let animalsFromLSString = localStorage.getItem('Animals');
-                // localStorage.setItem(`Animals2`, animalsFromLSString!);
-
-                // //let animalsFromLSString2 = localStorage.getItem('Animals2');
-                // let animalList: Animal[] = JSON.parse(localStorage.getItem('Animals2')!);
-                // console.log("hello");
-                // console.log(animalList[0].shortDescription);
             });
         }
     }, []);

@@ -28,15 +28,11 @@ export function AnimalDetail() {
     
     function feed() {
         
-        animal.isFed = !animal.isFed ;
+        animal.isFed = true;
         let d = new Date();
         animal.lastFed = d.toString();
-
-        // animal.name = animal.name + ".";
-        // console.log(animal.isFed);
-        // console.log(animal.lastFed);
         
-        animals[animals.findIndex( a => a.id == animal.id)] = animal;
+        animals[animals.findIndex( a => a.id === animal.id)] = animal;
         localStorage.setItem(`Animals`, JSON.stringify(animals));
         setAnimal({...animal});  
     }
