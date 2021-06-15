@@ -27,16 +27,18 @@ export function AnimalDetail() {
     }, [id]);
     
     function feed() {
-        // let index = animals.findIndex( a => a.id == animal.id);
-        //animals[index].isFed = animals[index].isFed;
+        
         animal.isFed = !animal.isFed ;
         let d = new Date();
         animal.lastFed = d.toString();
-        localStorage.setItem(`Animals`, JSON.stringify(animals));
-        console.log(animal.isFed);
-        console.log(animal.lastFed);
+
+        // animal.name = animal.name + ".";
+        // console.log(animal.isFed);
+        // console.log(animal.lastFed);
         
-        setAnimal(animal);  
+        animals[animals.findIndex( a => a.id == animal.id)] = animal;
+        localStorage.setItem(`Animals`, JSON.stringify(animals));
+        setAnimal({...animal});  
     }
     
     return(
@@ -45,7 +47,7 @@ export function AnimalDetail() {
             <h3>Latin name: {animal.latinName}</h3>
             <p>Year of Birth: {animal.yearOfBirth}</p>
             <p>Description: {animal.longDescription}</p>             
-            <p>Is fed?: {animal.isFed ? "Yes" : "No"} <button onClick={feed}>Feed Now</button></p>             
+            <p>Is fed?: {animal.isFed ? "Yes" : "No"} <button onClick={feed} disabled={animal.isFed}>Feed animal</button></p>             
             <p>Last fed: {animal.lastFed}</p>
             <img src={animal.imageUrl} alt="" />
             <a href="/">Go back</a>
