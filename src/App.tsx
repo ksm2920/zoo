@@ -1,11 +1,14 @@
 import './App.scss';
 import { AnimalDetail } from './components/AnimalDetail';
 import { PageNotFound } from './components/PageNotFound';
+import { Notification } from './components/Notification';
 import { Animals } from './components/Animals';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
   return (
+    <>
+    <Notification/>
     <Router>
       <Switch>
         <Route exact path="/">
@@ -19,7 +22,7 @@ function App() {
         </Route>
       </Switch>
     </Router>
-    
+    </>
     );
   }
   
