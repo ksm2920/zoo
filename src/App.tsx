@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 function App() {
   return (
     <>
+    <h1 id="home"><a href="/">Home</a></h1>
     <Notification/>
     <Router>
       <Switch>

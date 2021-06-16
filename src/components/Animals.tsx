@@ -7,14 +7,14 @@ export function Animals() {
     let defaultValue: Animal[] = [];
     const [animals, setAnimals] = useState(defaultValue);
 
-    let liTags = animals.map((animal) => {
+    let divTags = animals.map((animal) => {
         return (
-            <li key={animal.id}>
-                <h1>{animal.name}</h1>
+            <div key={animal.id}>
+                 <h1>{animal.name}</h1>
                 <img src={animal.imageUrl} alt="" />
                 <p>{animal.shortDescription}</p>
                 <Link to={"/animal/" + animal.id}>Show more</Link>
-            </li>
+            </div>
         )
     });
 
@@ -33,8 +33,8 @@ export function Animals() {
         }
     }, []);
     return (
-        <ul>
-            {liTags}
-        </ul>
+        <div className="animalList">
+            {divTags}
+        </div>
     );
 }

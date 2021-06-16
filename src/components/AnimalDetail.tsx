@@ -44,14 +44,13 @@ export function AnimalDetail() {
     }
     
     return(
-        <div>
-            <h1>Name: {animal.name}</h1>
-            <h3>Latin name: {animal.latinName}</h3>
-            <p>{isFed ? `${animal.name} is full!` : `${animal.name} is hungry!`} <button onClick={feed} disabled={isFed} >Feed {animal.name}</button></p>             
+        <div className="animalList">
+            <h1>{animal.name} (Latin name: {animal.latinName})</h1>
+            <h3>{isFed ? `${animal.name} is now full!` : `${animal.name} is now hungry!`} <button onClick={feed} disabled={isFed} >Feed {animal.name}</button></h3>             
             <p>Last fed: {animal.lastFed}</p>
             <p>Year of Birth: {animal.yearOfBirth}</p>
             <p>Description: {animal.longDescription}</p>                         
             <img src={animal.imageUrl} alt="" />
-            <a href="/">Go back</a>
+            <p><a href="/" id="goBack">Go back</a></p>
         </div>);
     }

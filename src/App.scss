@@ -1,6 +1,77 @@
-div {
-    padding: 10px;
+html, body {
+    font-family: 'Courier New', Courier, monospace;
+    overflow-x: none;
+    padding: 0;
+    margin: 0;
 }
+
+#home {
+    padding: 10px;
+    a {
+        text-decoration: none;
+        color: black;
+        &:hover {
+            color: gray;
+        }
+       
+    }
+}
+
+#hungryAniamlList {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.notice {
+    background-color: lightgray;
+    width: 100vw;
+    padding: 10px;
+    a {
+        padding: 10px;
+        text-decoration: none;
+        color: black;
+        &:hover {
+            color: chocolate;
+        }
+    }
+}
+
+.animalList {
+    padding: 10px;
+    width: 90%;
+    @media only screen and (min-width: 768px) {
+        width: 50%;
+    }
+}
+
 img {
-    width: 200px;
+    width: 100%;
+}
+
+button {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    padding: 5px 10px;
+    background-color: darkblue;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    &:hover {
+        background-color: blue;
+    }
+    &:disabled {
+        background-color: darkgray;
+        color: lightgray;
+    }
+}
+
+#goBack {
+    text-decoration: none;
+    border: 1px solid lightgray;
+    padding: 5px 10px;
+    &:hover {
+     color: orangered;   
+    }
 }

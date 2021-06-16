@@ -1,15 +1,17 @@
-// import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Animal } from "../models/Animal";
 
 export function Notification() {
     const [hungryAnimals, setHungryAnimals] = useState([] as Animal[]);
 
+    let aTags = hungryAnimals.map(a => {
+        return (
+        <a href={`/animal/${a.id}`} key={a.id}>{a.name}</a>
+        )
+    });
 
     useEffect(() => {
-
         setInterval(() => {
-            // console.log("Checking hungry animals");
             let allAnimals = JSON.parse(localStorage.getItem('Animals')!);
             let hungryAnimals: Animal[] = [];
 
@@ -19,15 +21,14 @@ export function Notification() {
                 }
             });
             setHungryAnimals(hungryAnimals);
-        }, 3000)
+        }, 1000)
     }, []);
 
-
     return (
-        <div>
-            Hungry animals: {hungryAnimals.length}
-            {hungryAnimals.map(a => {
-                return <p key={a.id}>{a.name} is hungry. <a href={`/animal/${a.id}`}>Show</a></p>
-            })}
+        <div className="notice">
+            <h3>Hungry animals: <b>{hungryAnimals.length}</b></h3>
+            <div id="hungryAnimalList">
+            {aTags}
+            </div>
         </div>);
 }
