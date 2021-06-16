@@ -9,7 +9,7 @@ export function Animals() {
 
     let divTags = animals.map((animal) => {
         return (
-            <div key={animal.id}>
+            <div key={animal.id} className="container">
                  <h1>{animal.name}</h1>
                 <img src={animal.imageUrl} alt="" />
                 <p>{animal.shortDescription}</p>
