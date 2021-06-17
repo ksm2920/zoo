@@ -13,34 +13,28 @@ export function AnimalDetail() {
     const [isFed, setIsFed] = useState(false);
     
     useEffect(() => {
-
         let animalsFromLSString = localStorage.getItem('Animals');
         if (animalsFromLSString) {
             let animalList = JSON.parse(animalsFromLSString);            
             let animalID = parseInt(id)-1;
             let theAnimal = animalList[animalID];
             setAnimal(theAnimal);
-            // console.log("Animal: "+ animal.name);
             setAnimals(animalList);
 
             if (Animal.isHungry(theAnimal)) {
-                // console.log("useffect: animal is hungry")
                 setIsFed(false);
             } else {
-                // console.log("useffect: animal is NOT hungry")
                 setIsFed(true);
             }
         };
     }, [id]);
     
     function feed() {
-        animal.isFed = true;
-        let d = new Date();
-        animal.lastFed = d.toLocaleString();
+        setIsFed(true);
+        animal.lastFed = new Date().toLocaleString();
         animals[animals.findIndex( a => a.id === animal.id)] = animal;
         localStorage.setItem(`Animals`, JSON.stringify(animals));        
         setAnimal({...animal});
-        setIsFed(true);
     }
     
     return(
@@ -48,7 +42,7 @@ export function AnimalDetail() {
             <h1>{animal.name} (Latin name: {animal.latinName})</h1>
             <h3>{isFed ? `${animal.name} is now full!` : `${animal.name} is now hungry!`}</h3>
             <p>Last fed: {animal.lastFed}</p>
-            <button onClick={feed} disabled={isFed} >Feed {animal.name}</button>             
+            <button id="feedBtn" onClick={feed} disabled={isFed} >Feed {animal.name}</button>             
             <img src={animal.imageUrl} alt="" />
             <p>Year of Birth: {animal.yearOfBirth}</p>
             <p>Description: {animal.longDescription}</p>                         

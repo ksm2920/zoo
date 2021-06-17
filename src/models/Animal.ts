@@ -27,14 +27,14 @@ export class Animal {
     }
 
     public static isHungry(animal: Animal): boolean {
-        // console.log("animal was last fed " + animal.lastFed)
         let timeElapsedSinceFed = new Date().getTime() - new Date(animal.lastFed).getTime();
-        // console.log(`${timeElapsedSinceFed / 1000} seconds since fed`);
-        if (timeElapsedSinceFed > 1440000) {
-            // console.log("This animal is hungry " );
+
+        if (timeElapsedSinceFed > 120000) {
             return true;
         } else {
             return false;
         }
     }
 }
+
+//1440000

@@ -1,32 +1,33 @@
-html, body {
+body {
     font-family: 'Courier New', Courier, monospace;
-    overflow-x: none;
     padding: 0;
     margin: 0;
 }
 
 #home {
     padding: 10px;
+    font-size: 3rem;
     a {
         text-decoration: none;
         color: black;
         &:hover {
             color: gray;
-        }
-       
+        } 
     }
-}
-
-#hungryAniamlList {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
 }
 
 .notice {
     background-color: lightgray;
     width: 100vw;
-    padding: 10px;
+    padding: 10px 0;
+    h3 {
+        padding-left: 10px;
+    }
+    &>div {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100vw;
+    }
     a {
         padding: 10px;
         text-decoration: none;
@@ -39,7 +40,7 @@ html, body {
 
 .animalList {
     padding: 10px;
-    width: 90%;
+    width: 95vw;
     @media only screen and (min-width: 768px) {
         width: 50%;
     }
