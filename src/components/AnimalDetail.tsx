@@ -30,10 +30,11 @@ export function AnimalDetail() {
     }, [id]);
     
     function feed() {
-        setIsFed(true);
+        animal.isFed = true;
         animal.lastFed = new Date().toLocaleString();
         animals[animals.findIndex( a => a.id === animal.id)] = animal;
-        localStorage.setItem(`Animals`, JSON.stringify(animals));        
+        localStorage.setItem(`Animals`, JSON.stringify(animals));  
+        setIsFed(true);      
         setAnimal({...animal});
     }
     
