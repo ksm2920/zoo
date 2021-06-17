@@ -29,7 +29,7 @@ export class Animal {
     public static isHungry(animal: Animal): boolean {
         let timeElapsedSinceFed = new Date().getTime() - new Date(animal.lastFed).getTime();
 
-        if (timeElapsedSinceFed > 120000) {
+        if (timeElapsedSinceFed > 14400000) {
             return true;
         } else {
             return false;
@@ -37,4 +37,3 @@ export class Animal {
     }
 }
 
-//1440000

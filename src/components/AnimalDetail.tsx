@@ -36,6 +36,9 @@ export function AnimalDetail() {
         localStorage.setItem(`Animals`, JSON.stringify(animals));  
         setIsFed(true);      
         setAnimal({...animal});
+        setTimeout(() => {
+            setIsFed(false);
+        }, 10800000);
     }
     
     return(

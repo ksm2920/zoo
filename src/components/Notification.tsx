@@ -21,7 +21,8 @@ export function Notification() {
                 }
             });
             setHungryAnimals(hungryAnimals);
-        }, 1000)
+        }, 1000);
+
     }, []);
 
     return (
