@@ -26,6 +26,16 @@ export class Animal {
         } as Animal;
     }
 
+    public static canFeed(animal: Animal): boolean {
+        let timeElapsedSinceFed = new Date().getTime() - new Date(animal.lastFed).getTime();
+
+        if (timeElapsedSinceFed > 10800000) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public static isHungry(animal: Animal): boolean {
         let timeElapsedSinceFed = new Date().getTime() - new Date(animal.lastFed).getTime();
 

@@ -21,12 +21,16 @@ export function AnimalDetail() {
             setAnimal(theAnimal);
             setAnimals(animalList);
 
-            if (Animal.isHungry(theAnimal)) {
+            if (Animal.canFeed(theAnimal)) {
+                setIsFed(false);
+            } else if (Animal.isHungry(theAnimal)) {
                 setIsFed(false);
             } else {
                 setIsFed(true);
             }
+            
         };
+        
     }, [id]);
     
     function feed() {
@@ -36,9 +40,6 @@ export function AnimalDetail() {
         localStorage.setItem(`Animals`, JSON.stringify(animals));  
         setIsFed(true);      
         setAnimal({...animal});
-        setTimeout(() => {
-            setIsFed(false);
-        }, 10800000);
     }
     
     return(
