@@ -9,8 +9,8 @@ function App() {
   return (
     <>
     <h1 id="home"><a href="/">ZOO</a></h1>
-    <Notification/>
     <Router>
+    <Notification/>
       <Switch>
         <Route exact path="/">
           <Animals></Animals>

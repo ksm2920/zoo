@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Animal } from "../models/Animal";
 
 export function Notification() {
     const [hungryAnimals, setHungryAnimals] = useState([] as Animal[]);
 
-    let aTags = hungryAnimals.map(a => {
+    let linkTags = hungryAnimals.map(a => {
         return (
-        <a href={`/animal/${a.id}`} key={a.id}>{a.name}</a>
+        <Link to ={`/animal/${a.id}`} key={a.id}>{a.name}</Link>
         )
     });
 
@@ -29,7 +30,7 @@ export function Notification() {
         <div className="notice">
             <h3>Hungry animals: <b>{hungryAnimals.length}</b></h3>
             <div id="hungryAnimalList">
-            {aTags}
+            {linkTags}
             </div>
         </div>);
 }
